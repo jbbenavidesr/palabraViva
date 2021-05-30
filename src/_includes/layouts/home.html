@@ -1,0 +1,7 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+    <div class="wrapper">
+        {% set entry = collections.evangelios[0] %}
+        {% include "partials/entry.html"%}
+    </div>
+{% endblock %}

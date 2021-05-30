@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "text": "Evangelio de hoy",
+      "url": "/"
+    },
+    {
+      "text": "Sobre nosotros",
+      "url": "/about-us/"
+    },
+    {
+      "text": "Archivo",
+      "url": "/archivo/"
+    }
+  ]
+}

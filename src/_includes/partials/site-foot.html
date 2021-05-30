@@ -1,0 +1,15 @@
+<footer class="site-foot">
+    <div class="wrapper">
+        <div class="site-foot__inner">
+            <nav class="[ nav ] [ site-foot__nav ] [ font-sans ]" aria-label="Primary">
+                <ul class="nav__list">
+                    {% for item in navigation.items %}
+                        <li>
+                            <a href="{{ item.url }}">{{ item.text }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>
