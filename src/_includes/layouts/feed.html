@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+
+{% set postListItems = pagination.items %}
+
+{% block content %}
+  <article>
+	  <div class="[ wrapper ] [ flow ]" id="post-list">
+		  <h1> {{ title }}</h1>
+		  <div>
+			  <ol class="[ post-list ] [ flow ]">
+				  {% for item in postListItems %}
+				  <li class="[ post-list__item ]">
+					  <a href="{{ item.url }}" class="post-list__link">{{ item.data.cita }}</a>
+					  <date>{{ item.data.date }} </date>
+				  </li>
+				  {% endfor %}
+			  </ol>
+		  </div>
+		  {% include "partials/pagination.html" %}
+	  </div> 
+  </article>
+{% endblock %}
