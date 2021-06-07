@@ -1,16 +1,24 @@
 {% extends "layouts/base.html" %}
+{% if not pageHeaderTitle %}
+    {% set pageHeaderTitle = title %}
+{% endif %}
+{# Render post date if no summary is given #}
+{% if not pageHeaderSummary %}
+    {% set pageHeaderSummary %}
+    <time datetime="{{ page.date | w3DateFilter }}">{{ page.date | dateFilter }}</time>
+    {% endset %}
+{% endif %}
 {% block content %}
-    <div class="wrapper">
-        {% set entryTitle = collections.evangelios[0].data.cita %}
-        {% set entryDate = collections.evangelios[0].data.date %}
-        {% set entryContent = collections.evangelios[0].templateContent %}
-        {% set entryLink = collections.evangelios[0].data.link %}
-		{% if entry %}
-        {% set entryTitle = entry.title %}
-        {% set entryDate = entry.date %}
-        {% set entryContent = content %}
-        {% set entryLink = entry.link %}
-		{% endif %}
-        {% include "partials/entry.html"%}
-    </div>
+    <article>
+        {% include "partials/page-header.html" %}
+        <div class="[ page-content ] [ flow wrapper ]">
+            {{ content | safe }}
+            {% if link %}
+                <h2 class="entry__section">Meditación</h2>
+                <div class="entry__media">
+                    <iframe src="https://open.spotify.com/embed/episode/{{ helpers.getSpotifyID(link) }}" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            {% endif %}
+        </div>
+    </article>
 {% endblock %}
