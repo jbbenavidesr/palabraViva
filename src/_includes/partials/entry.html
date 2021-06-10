@@ -1,13 +1,16 @@
-<article class="entry">
-    <h1 class="entry__title">{{ entryTitle }}</h1>
-    <date>{{ entryDate }}</date>
-    <div class="entry__text">
-        {{ entryContent | safe }}
+<article>
+    {% include "partials/page-header.html" %}
+    <div class="[ page-content ] [ flow wrapper ]">
+        {% if pageContent %}
+            {{ pageContent | safe }}
+        {% else %}
+            {{ content | safe }}
+        {% endif %}
+        {% if link %}
+            <h2 class="entry__section">Meditación</h2>
+            <div class="entry__media">
+                <iframe src="https://open.spotify.com/embed/episode/{{ helpers.getSpotifyID(link) }}" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        {% endif %}
     </div>
-    {% if entryLink %}
-        <h2 class="entry__section">Meditación</h2>
-        <div class="entry__media">
-            <iframe src="https://open.spotify.com/embed/episode/{{ helpers.getSpotifyID(entryLink) }}" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-    {% endif %}
 </article>

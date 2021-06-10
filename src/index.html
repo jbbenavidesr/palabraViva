@@ -1,0 +1,13 @@
+---
+title: "Evangelio de Hoy"
+layout: "layouts/home.html"
+---
+{% set post= collections.evangelios[0] %}
+{% set pageHeaderTitle = post.data.title  %}
+{% set pageHeaderSummary %}
+    <time datetime="{{ post.date | w3DateFilter }}">{{ post.date | dateFilter }}</time>
+{% endset %}
+{% set pageContent = post.templateContent %}
+{% set link = post.data.link %}
+
+{% include "partials/entry.html" %}
