@@ -27,5 +27,5 @@ module.exports = (value) => {
   const dateObject = new Date(value);
   return `${DIAS[dateObject.getDay()]} ${dateObject.getDate()} de ${
     MESES[dateObject.getMonth()]
-  } del ${dateObject.getFullYear()}`;
+  }`;
 };
