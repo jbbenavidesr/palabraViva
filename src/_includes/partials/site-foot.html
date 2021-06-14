@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="site-foot__inner">
             <nav class="[ nav ] [ site-foot__nav ] [ font-sans ]" aria-label="Primary">
-                <ul class="nav__list" role="list">
+                <ul class="nav__list flex" role="list">
                     {% for item in navigation.items %}
                         <li>
                             <a href="{{ item.url }}">{{ item.text }}</a>

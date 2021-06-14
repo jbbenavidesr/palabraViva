@@ -24,6 +24,8 @@ dd {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Set core root defaults */
@@ -82,41 +84,213 @@ select {
   --clr-neutral-200: #d3d3d3;
   --clr-neutral-900: #051014;
   --clr-neutral-800: #2e2f2f;
+
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.33rem;
+  --size-600: 1.77rem;
+  --size-700: 2.36rem;
+  --size-800: 3.15rem;
+  --size-900: 4.2rem;
 }
 
 /* ----- Fonts ----- */
 @font-face {
   font-family: "MoonTime";
-  src: url("/fonts/MoonTime/MoonTime-Regular.otf") format("opentype"),
+  src: local(''),
+    url("/fonts/MoonTime/MoonTime-Regular.otf") format("opentype"),
     url("/fonts/MoonTime/MoonTime-Regular.ttf") format("truetype");
   font-weight: 400;
+}
+
+/* ubuntu-300 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-Light.ttf') format('truetype');
+}
+
+/* ubuntu-300italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-LightItalic.ttf') format('truetype');
+}
+
+/* ubuntu-regular - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
+}
+
+/* ubuntu-italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-Italic.ttf') format('truetype');
+}
+
+/* ubuntu-500 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype');
+}
+
+/* ubuntu-500italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 500;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-MediumItalic.ttf') format('truetype');
+}
+
+/* ubuntu-700 - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+}
+
+/* ubuntu-700italic - latin */
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  src: local(''),
+       url('/fonts/Ubuntu/Ubuntu-BoldItalic.ttf') format('truetype');
 }
 
 /* ----- General styles -----*/
 body {
   background: var(--clr-neutral-100);
   color: var(--clr-neutral-800);
-  font-family: sans-serif;
-  font-size: 1.25rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: var(--size-400);
 }
 
 h1,
 h2,
 h3 {
-  font-weight: 400;
-  line-height: 1;
+  font-weight: 500;
+  line-height: 1.3;
   color: var(--clr-primary-400);
 }
 
 h1 {
-  font-family: "MoonTime";
-  font-size: 3.5rem;
+  font-size: var(--size-700);
+}
+
+h2 {
+  font-size: var(--size-600);
+}
+
+h3 {
+  font-size: var(--size-600);
 }
 
 time {
-  font-size: 1rem;
+  display: block;
+  font-size: var(--size-300);
   color: var(--clr-secondary-400);
+
+  --flow-space: var(--size-400)
 }
+
+a:not([class]) {
+  color: currentColor;
+}
+
+:focus {
+  outline: 2px dashed;
+  outline-offset: 0.25rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+[href]:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: min(55rem, 100%);
+}
+
+figcaption {
+  font-size: var(--size-300);
+
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+blockquote {
+  padding-left: var(--size-600);
+  border-left: 5px solid;
+  font-style: italic;
+}
+
+::selection {
+  color: var(--clr-neutral-100);
+  background: rgba(0, 0, 0, 0.99);
+}
+
+p,
+li {
+  max-width: 60ch;
+}
+
+h1 {
+  max-width: 15ch;
+}
+
+h2,
+h3 {
+  max-width: 25ch;
+}
+
+@media (min-width: 45em) {
+  h1 {
+    font-size: var(--size-900);
+  }
+
+  h2 {
+    font-size: var(--size-700);
+  }
+
+  p {
+    font-size: var(--size-500);
+  }
+
+  figcaption {
+    font-size: var(--size-400);
+  }
+
+  blockquote p {
+    font-size: var(--size-600);
+    max-width: 40ch;
+  }
+
+  time {
+    font-size: var(--size-400);
+  }
+}
+
 
 /* ----- Utility classes ----- */
 .skip-link {
@@ -139,8 +313,8 @@ time {
 }
 
 .wrapper {
-  width: 90vw;
-  width: clamp(16rem, 90vw, 60rem);
+  width: var(--wrapper-width, 90vw);
+  width: clamp(var(--wrapper-min, 16rem), var(--wrapper-width, 90vw), var(--wrapper-max, 60rem));
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -148,6 +322,27 @@ time {
   position: relative;
 }
 
+.wrapper--long {
+  --wrapper-max: 90rem;
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
+}
+
+.flex {
+  display: flex;
+  gap: 1em;
+}
+
+/* ----- Components -----*/
+.site-head {
+  padding: 1rem;
+}
+
+.site-head__brand {
+  font-family: "MoonTime", "Ubuntu", sans-serif;
+  text-decoration: none;
+  color: var(--clr-primary-400);
+  font-size: 3rem;
 }

@@ -2,11 +2,9 @@
     <div class="[ wrapper ]">
         <h1 class="[ page-header__heading ]">
             {{ pageHeaderTitle }}
-        </h1>
-        {% if pageHeaderSummary %}
-            <div class="[ page-header__summary ]">
-                {{ pageHeaderSummary | safe }}
-            </div>
-        {% endif %}
+        </h1>{% if pageHeaderSummary %}
+        <div class="[ page-header__summary ]">
+            {{ pageHeaderSummary | safe }}
+        </div>{% endif %}
     </div>
 </div>
