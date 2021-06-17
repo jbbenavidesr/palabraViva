@@ -7,7 +7,9 @@ pageHeaderSummary: "<p><i>Palabra Viva</i> es un espacio de oración que surge p
 
 {% set pageContent %}
 
-> “Ciertamente, es viva la Palabra de Dios y eficaz, y más cortante que espada alguna de dos filos. Penetra hasta las fronteras entre el alma y el espíritu, hasta las junturas y médulas; y escruta los sentimientos y pensamientos del corazón." **Hb 4,12**
+> “Ciertamente, es viva la Palabra de Dios y eficaz, y más cortante que espada alguna de dos filos. Penetra hasta las fronteras entre el alma y el espíritu, hasta las junturas y médulas; y escruta los sentimientos y pensamientos del corazón." 
+>
+> -- <cite>**Hb 4,12**</cite>
 
 ## Sobre la anfitriona
 

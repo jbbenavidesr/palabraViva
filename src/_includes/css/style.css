@@ -25,7 +25,6 @@ ul[role="list"],
 ol[role="list"] {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 /* Set core root defaults */
@@ -181,6 +180,14 @@ body {
   color: var(--clr-neutral-800);
   font-family: 'Ubuntu', sans-serif;
   font-size: var(--size-400);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
 }
 
 h1,
@@ -207,6 +214,7 @@ time {
   display: block;
   font-size: var(--size-300);
   color: var(--clr-secondary-400);
+  font-style: italic;
 
   --flow-space: var(--size-400)
 }
@@ -348,7 +356,7 @@ h3 {
 }
 
 .site-foot {
-  padding: var(--size-600);
+  padding: var(--size-400);
 }
 
 .nav {
@@ -361,7 +369,48 @@ h3 {
 
 .nav a:hover,
 .nav a:focus {
-  color: var(--clr-primary-400);
   outline: 2px dashed;
   outline-offset: 0.25rem;
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-800);
+}
+
+.post-list__link {
+  text-decoration: none;
+  color: var(--clr-primary-400);
+  font-size: var(--size-600);
+}
+
+.post-list li {
+  border-bottom: 2px dashed var(--clr-secondary-400);
+  padding-bottom: var(--size-400);
+}
+
+.pagination {
+  max-width: 60ch;
+  color: var(--clr-secondary-400);
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination a:hover,
+.pagination a:focus {
+  outline: 2px dashed;
+  outline-offset: 0.25rem;
+}
+
+.pagination__inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pagination__inner > [data-direction='forwards'] {
+  margin-inline-start: auto;
 }
