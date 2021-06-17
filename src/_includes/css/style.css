@@ -414,3 +414,7 @@ h3 {
 .pagination__inner > [data-direction='forwards'] {
   margin-inline-start: auto;
 }
+
+.copyright {
+  font-size: var(--size-300);
+}
