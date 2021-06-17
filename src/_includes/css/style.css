@@ -346,3 +346,22 @@ h3 {
   color: var(--clr-primary-400);
   font-size: 3rem;
 }
+
+.site-foot {
+  padding: var(--size-600);
+}
+
+.nav {
+  color: var(--clr-secondary-400);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus {
+  color: var(--clr-primary-400);
+  outline: 2px dashed;
+  outline-offset: 0.25rem;
+}
