@@ -25,7 +25,7 @@ const DIAS = [
 
 module.exports = (value) => {
   const dateObject = new Date(value);
-  return `${DIAS[dateObject.getDay()]} ${dateObject.getDate()} de ${
-    MESES[dateObject.getMonth()]
+  return `${DIAS[dateObject.getUTCDay()]} ${dateObject.getUTCDate()} de ${
+    MESES[dateObject.getUTCMonth()]
   }`;
 };
