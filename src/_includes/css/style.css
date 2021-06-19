@@ -376,7 +376,7 @@ h3 {
 .nav__list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--size-800);
+  gap: var(--size-600);
 }
 
 .post-list__link {
