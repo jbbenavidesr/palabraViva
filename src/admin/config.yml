@@ -14,5 +14,5 @@ collections:
     fields: 
       - {label: "Cita", name: "title", widget: "string"}
       - {label: "Fecha", name: "date", widget: "datetime", time_format: false}
-      - {label: "Url del podcast", name: "link", widget: "string"}
+      - {label: "Url del podcast", name: "link", widget: "string", required: false}
       - {label: "Evangelio", name: "body", widget: "markdown"}
