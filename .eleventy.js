@@ -4,9 +4,12 @@ const w3DateFilter = require("./src/filters/w3-date-filter.js");
 const CleanCSS = require("clean-css");
 
 module.exports = (config) => {
+
+  const now = new Date();
   // Returns a collection with all entries of the gospel in reverse date oder
+  const livePosts = post => post.date <= now && !post.data.draft;
   config.addCollection("evangelios", (collection) => {
-    return [...collection.getFilteredByGlob("./src/evangelios/*.md")].reverse();
+    return [...collection.getFilteredByGlob("./src/evangelios/*.md").filter(livePosts)].reverse();
   });
 
   // Add filters
@@ -16,8 +19,9 @@ module.exports = (config) => {
     return new CleanCSS({}).minify(code).styles;
   });
 
-  // Add passthrough of the fonts
+  // Add passthrough of the fonts and CMS Settings
   config.addPassthroughCopy("src/fonts");
+  config.addPassthroughCopy("src/admin");
 
   return {
     markdownTemplateEngine: "njk",
