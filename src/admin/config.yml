@@ -1,0 +1,15 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "src/images"
+public_folder: "/images"
+collections:
+  - name: "evangelios"
+    label: "Evangelios"
+    folder: "src/evangelios"
+    slug: {{year}}-{{month}}-{{day}}
+    create: true
+    fields: 
+      - {label: "Cita", name: "title", widget: "string"}
+      - {label: "Fecha", name: "date", widget: "datetime", time_format: false}
+      - {label: "Url del podcast", name: "link", widget: "string"}
