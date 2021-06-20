@@ -7,7 +7,7 @@ module.exports = (config) => {
 
   const now = new Date();
   // Returns a collection with all entries of the gospel in reverse date oder
-  const livePosts = post => post.date <= now && !post.data.draft;
+  const livePosts = post => post.date.setUTCHours(0,0,0,0) <= now && !post.data.draft;
   config.addCollection("evangelios", (collection) => {
     return [...collection.getFilteredByGlob("./src/evangelios/*.md").filter(livePosts)].reverse();
   });
