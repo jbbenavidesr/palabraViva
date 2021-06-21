@@ -22,6 +22,7 @@ module.exports = (config) => {
   // Add passthrough of the fonts and CMS Settings
   config.addPassthroughCopy("src/fonts");
   config.addPassthroughCopy("src/admin");
+  config.addPassthroughCopy("src/images");
 
   return {
     markdownTemplateEngine: "njk",
