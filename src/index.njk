@@ -1,0 +1,15 @@
+---
+title: "Evangelio de Hoy"
+layout: "layouts/home.html"
+socialImage: "/images/palabra-viva.jpeg"
+---
+
+<h1>Palabra Viva</h1>
+
+{% for post in shows %}
+<h2 class="entry__section">{{ post.description}}</h2>
+<time datetime="{{ post.release_date | w3DateFilter }}">{{ post.release_date | dateFilter }}</time>
+<div class="entry__media">
+    <iframe src="https://open.spotify.com/embed/episode/{{ post.id }}" loading="lazy" width="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+{% endfor %}
